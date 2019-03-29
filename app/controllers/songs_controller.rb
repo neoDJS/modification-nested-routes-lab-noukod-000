@@ -43,8 +43,8 @@ class SongsController < ApplicationController
   end
 
   def edit
-    if params[:author_id]
-      author = Author.find_by(id: params[:author_id])
+    if params[:artist_id]
+      author = Artist.find_by(id: params[:author_id])
       if author.nil?
         redirect_to authors_path, alert: "Author not found."
       else
