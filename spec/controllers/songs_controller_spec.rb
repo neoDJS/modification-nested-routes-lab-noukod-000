@@ -68,7 +68,7 @@ RSpec.describe SongsController do
     end
 
     it "returns 200 with valid artist song" do
-      get :show, id: @song.id, artist_id: @artist.id
+      get :show, params: {id: @song.id, artist_id: @artist.id}
       expect(response).to be_ok
     end
   end
