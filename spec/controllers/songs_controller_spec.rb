@@ -57,12 +57,12 @@ RSpec.describe SongsController do
   describe "GET show with  artist" do
 
     it "returns 200 with valid song and no artist" do
-      get :show, id: @song.id
+      get :show, params: {id: @song.id}
       expect(response).to be_ok
     end
 
     it "redirects to artists songs when artist song not found" do
-      get :show, id: 12345, artist_id: @artist.id
+      get :show, params: {id: 12345, artist_id: @artist.id}
       expect(controller).to set_flash[:alert]
       expect(response).to redirect_to artist_songs_path(@artist)
     end
